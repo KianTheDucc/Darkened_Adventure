@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Start_Screen.unity
+    guid: d9aa9c991124b8842904f05eb4a041a3
+  - enabled: 1
+    path: Assets/Scenes/Darkened_Adventure.unity
+    guid: c9666bfb42a8fef48a4ca9459b0f0452
   m_configObjects: {}
