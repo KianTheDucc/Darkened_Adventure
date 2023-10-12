@@ -44,10 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W))
-        {
-            hasJumped = false;
-        }
+
         //float angleIncrement = 1f;
         //for (float angle = 0f; angle < 360f; angle += angleIncrement)
         //{
@@ -148,6 +145,10 @@ public class PlayerController : MonoBehaviour
             //    GetComponent<KnockbackWorking>().ApplyWallJump(-1);
             //    hasJumped = true;
             //}
+        }
+        if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W))
+        {
+            hasJumped = false;
         }
 
 
