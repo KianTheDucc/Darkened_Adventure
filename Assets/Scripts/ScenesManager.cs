@@ -14,7 +14,8 @@ public class ScenesManager : MonoBehaviour
     public enum Scene
     {
         Start_Screen,
-        Darkened_Adventure
+        Darkened_Adventure,
+        Death_Screen
     }
 
     public void LoadScene(Scene scene)
@@ -23,16 +24,21 @@ public class ScenesManager : MonoBehaviour
     }
     public void LoadNewGame()
     {
-        //SceneManager.UnloadSceneAsync(Scene.Start_Screen.ToString());
-        SceneManager.LoadScene(Scene.Darkened_Adventure.ToString());
+        SceneManager.LoadScene("Darkened_Adventure");
         
     }
+
+    public void LoadDeathScreen()
+    {
+        SceneManager.LoadScene("Death_Screen");
+    }
+
     public void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(Scene.Start_Screen.ToString());
+        SceneManager.LoadScene("Start_Screen");
     }
 }
