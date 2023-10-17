@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     private Vector3 temp;
     public float MinX, MaxX, MinY, MaxY;
-    private Transform Player;
+    public Transform Player;
 
     // Start is called before the first frame update
     void Start()
