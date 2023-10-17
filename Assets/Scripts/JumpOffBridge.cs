@@ -1,11 +1,10 @@
-using Mono.Cecil;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-public class MentorScript : MonoBehaviour
+
+public class JumpOffBridge : MonoBehaviour
 {
     [SerializeField]
     public TextMeshProUGUI messageText;
@@ -16,8 +15,6 @@ public class MentorScript : MonoBehaviour
 
     [SerializeField] float timeBtwnWords;
 
-    public bool enableWriting;
-
     int i = 0;
 
     private void Awake()
@@ -27,24 +24,10 @@ public class MentorScript : MonoBehaviour
 
     private void Start()
     {
-        stringArray[0] = "Wait! (Press R)";
-        stringArray[1] = "The land of Zarakorch still needs you.";
-        stringArray[2] = "Come with me and you have a chance to save everyone.";
-        stringArray[3] = "A chance to save everyone from the tyrant that is the abyssal king...";
-        stringArray[4] = "Press F";
+        stringArray[0] = "";
+        stringArray[0] = "You once again contemplate ending it all and jumping off the bridge, to do it, press E";
 
 
-
-    }
-    private void Update()
-    {
-        if (enableWriting && Input.GetKeyDown(KeyCode.R))
-        {
-            
-            Debug.Log("button pressed");
-            EndCheck();
-
-        }
     }
 
     public void EndCheck()
@@ -53,7 +36,6 @@ public class MentorScript : MonoBehaviour
         {
             messageText.text = stringArray[i];
             StartCoroutine(TextVisible());
-
         }
     }
 
@@ -84,16 +66,16 @@ public class MentorScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        enableWriting = true;
-        //EndCheck();
-
-
+        
+        EndCheck();
     }
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        enableWriting = false;
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+
+            SceneManager.LoadScene("Death_Screen");
+
+        }
     }
-
 }
-

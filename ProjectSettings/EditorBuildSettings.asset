@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Darkened_Adventure.unity
     guid: c9666bfb42a8fef48a4ca9459b0f0452
   - enabled: 1
+    path: Assets/Scenes/The_Dark_Revival.unity
+    guid: 6bb94d9e92f5abb499f0a1a204157202
+  - enabled: 1
     path: Assets/Death_Screen.unity
     guid: 8270c0e93be5a6c4fb964147a218bcd6
   m_configObjects: {}

@@ -15,6 +15,7 @@ public class ScenesManager : MonoBehaviour
     {
         Start_Screen,
         Darkened_Adventure,
+        The_Dark_Revival,
         Death_Screen
     }
 
