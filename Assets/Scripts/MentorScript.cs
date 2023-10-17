@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-public class UI_Assistant : MonoBehaviour
+public class MentorScript : MonoBehaviour
 {
     [SerializeField]
     public TextMeshProUGUI messageText;
@@ -15,8 +15,10 @@ public class UI_Assistant : MonoBehaviour
 
     [SerializeField] float timeBtwnWords;
 
+    public bool enableWriting;
+
     int i = 0;
-    
+
     private void Awake()
     {
         messageText = transform.Find("messageText").GetComponent<TextMeshProUGUI>();
@@ -24,10 +26,23 @@ public class UI_Assistant : MonoBehaviour
 
     private void Start()
     {
-        stringArray[0] = "";
-        
+        stringArray[0] = "Wait! (Press R)";
+        stringArray[1] = "The land of Zarakorch still needs you.";
+        stringArray[2] = "Come with me and you have a chance to save everyone.";
+        stringArray[3] = "A chance to save everyone from the tyrant that is the abyssal king...";
 
-        
+
+
+    }
+    private void Update()
+    {
+        if (enableWriting && Input.GetKeyDown(KeyCode.R))
+        {
+            
+            Debug.Log("button pressed");
+            EndCheck();
+
+        }
     }
 
     public void EndCheck()
@@ -48,9 +63,9 @@ public class UI_Assistant : MonoBehaviour
         while (true)
         {
             int visibleCount = counter % (totalVisibleCharacters + 1);
-            
+
             messageText.maxVisibleCharacters = visibleCount;
-            
+
             if (visibleCount >= totalVisibleCharacters)
             {
                 i++;
@@ -59,24 +74,23 @@ public class UI_Assistant : MonoBehaviour
 
             counter++;
 
-            
+
             yield return new WaitForSeconds(timeBtwnChars);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        stringArray[0] = "You contemplate jumping out the window, to do it, press E";
-        EndCheck();
+
+        enableWriting = true;
+        //EndCheck();
+
+
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        if (Input.GetKey(KeyCode.E))
-        {
-
-            ScenesManager.instance.LoadDeathScreen();
-
-        }
+        enableWriting = false;
     }
 
 }
+
