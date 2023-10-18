@@ -16,6 +16,8 @@ public class UI_Assistant : MonoBehaviour
     [SerializeField] float timeBtwnWords;
 
     int i = 0;
+
+
     
     private void Awake()
     {

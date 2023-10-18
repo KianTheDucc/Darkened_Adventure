@@ -17,18 +17,32 @@ public class JumpOffBridge : MonoBehaviour
 
     int i = 0;
 
+    private bool CanMoveOn;
+
     private void Awake()
     {
         messageText = transform.Find("messageText").GetComponent<TextMeshProUGUI>();
     }
 
+
     private void Start()
     {
+        CanMoveOn = false;
         stringArray[0] = "";
         stringArray[0] = "You once again contemplate ending it all and jumping off the bridge, to do it, press E";
 
 
     }
+
+
+    private void Update()
+    {
+        if (CanMoveOn && Input.GetKeyDown(KeyCode.E))
+        {
+            SceneManager.LoadScene("Death_Screen");
+        }
+    }
+
 
     public void EndCheck()
     {
@@ -66,16 +80,8 @@ public class JumpOffBridge : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        CanMoveOn = true; 
         EndCheck();
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
 
-            SceneManager.LoadScene("Death_Screen");
-
-        }
-    }
 }
