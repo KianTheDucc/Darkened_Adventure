@@ -84,7 +84,7 @@ public class MentorTalk2 : MonoBehaviour
     {
 
         enableWriting = true;
-        //EndCheck();
+        EndCheck();
 
 
     }
