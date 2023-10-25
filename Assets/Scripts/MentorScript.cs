@@ -20,6 +20,8 @@ public class MentorScript : MonoBehaviour
 
     int i = 0;
 
+    public GameObject textBackground;
+
 
 
 
@@ -71,14 +73,16 @@ public class MentorScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        textBackground.SetActive(true);
         enableWriting = true;
         EndCheck();
+
 
 
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        textBackground.SetActive(false);
         enableWriting = false;
     }
 
