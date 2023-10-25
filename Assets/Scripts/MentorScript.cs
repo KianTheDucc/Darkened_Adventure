@@ -20,22 +20,9 @@ public class MentorScript : MonoBehaviour
 
     int i = 0;
 
-    private void Awake()
-    {
-        messageText = transform.Find("messageText").GetComponent<TextMeshProUGUI>();
-    }
-
-    private void Start()
-    {
-        stringArray[0] = "Wait! (Press R)";
-        stringArray[1] = "The land of Zarakorch still needs you.";
-        stringArray[2] = "Come with me and you have a chance to save everyone.";
-        stringArray[3] = "A chance to save everyone from the tyrant that is the abyssal king...";
-        stringArray[4] = "Press F";
 
 
 
-    }
     private void Update()
     {
         if (enableWriting && Input.GetKeyDown(KeyCode.R))
